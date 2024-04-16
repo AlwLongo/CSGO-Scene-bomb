@@ -22,6 +22,9 @@
 
 // LCD
 LiquidCrystal lcd(8, 9, 4, 5, 6, 7);
+
+enum DANGER_STATUS{ STARTED , OK, ON_LAST_MINUTE, ON_LAST_TEN_SECONDS, ENDED};
+
 int read_LCD_buttons()
 {                                   // read the buttons
     int adc_key_in = analogRead(0); // read the value from the sensor

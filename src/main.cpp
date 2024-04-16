@@ -1,8 +1,3 @@
-/*
- Test timer rollover handling
- */
-
-
 
 #include <util/atomic.h>
 #include <arduino-timer.h>
@@ -22,21 +17,6 @@ String password;
 PasswordScreen second_screen;
 Game started_game(nullptr, nullptr);
 
-/*/*
- * timer_full
- *
- * Full example using the arduino-timer library.
- * Shows:
- *  - Setting a different number of tasks with microsecond resolution
- *  - disabling a repeated function
- *  - running a function after a delay
- *  - cancelling a task
- *
- */
-
-
-// create a timer that holds 16 tasks, with millisecond resolution,
-// and a custom handler type of 'const char *
 Timer<5, millis, const char *> buffer_timer;
 
 bool syncronize_timer_and_led(const char *m){
@@ -100,18 +80,10 @@ void setup() {
   
   //
   buffer_timer.every(50, syncronize_timer_and_led, "NOPE");
-
   buffer_timer.every(200, update, "NOPE");
-  // call the print_message function every 1000 millis (1 second),
-  // passing it an argument string
   buffer_timer.every(1000, refresh_screen, "NOPE");
-
-  // call the toggle_led function every 500 millis (half second)
-
-  // call print_message in 2 seconds, but with microsecond resolution
-  //u_timer.in(2000000, , "delayed two seconds using microseconds");
+  //
   started_game.start();
-
   delay(2000);
 }
 

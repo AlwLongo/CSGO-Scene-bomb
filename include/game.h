@@ -2,8 +2,6 @@
 #define GAME_H
 #include "globals.h"
 
-enum DANGER_STATUS{ STARTED , OK, ON_LAST_MINUTE, ON_LAST_TEN_SECONDS, ENDED};
-
 class Game {
     
 private:    

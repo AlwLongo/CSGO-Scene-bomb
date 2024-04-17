@@ -1,5 +1,4 @@
 
-
 #ifndef GLOBALS_H
 #define GLOBALS_H
 #include <Arduino.h>
@@ -17,8 +16,8 @@
 #define btnSELECT 4
 #define btnNONE 5
 
-#define LED_PIN A2
-#define BUZZER_PIN A1
+#define LED_PIN 2
+#define BUZZER_PIN A5
 
 // LCD
 LiquidCrystal lcd(8, 9, 4, 5, 6, 7);
@@ -41,14 +40,7 @@ int read_LCD_buttons()
         return btnSELECT;
 
     return btnNONE;
-    // For V1.0 comment the other threshold and use the one below:
-    /*
-    if (adc_key_in < 50) return btnRIGHT;
-    if (adc_key_in < 195) return btnUP;
-    if (adc_key_in < 380) return btnDOWN;
-    if (adc_key_in < 555) return btnLEFT;
-    if (adc_key_in < 790) return btnSELECT;
-    */
+
 }
 
 // KEYPAD
@@ -61,8 +53,8 @@ char hexaKeys[ROWS][COLS] = {
     {'*', '0', '#', 'D'}
     };
 
-byte colPins[COLS] = {12, 13, A4, A3};
-byte rowPins[ROWS] = { A5, 2, 3, 11};
+byte colPins[COLS] = {A1, A2, A3, A4};
+byte rowPins[ROWS] = {3, 11, 12, 13};
 Keypad keypad = Keypad(makeKeymap(hexaKeys), rowPins, colPins, ROWS, COLS);
 
 int  led_status = LOW;
